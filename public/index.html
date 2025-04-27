@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poiret+One&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <section class="sidebar">
+        <div class="inner">
+            <img class="logo" src="img/Nest.png" alt="Logo">
+            <nav>
+                <ul>
+                    <li><a href="#intro">Início</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div id="wrapper">
+
+        <!-- Intro -->
+        <section id="intro" class="wrapper style">
+            <div class="inner">
+                <h1>Reading Journal</h1>
+                <p>Guarde, avalie e relembre os livros que marcaram sua jornada</p>
+                <ul class="actions">
+                    <li><a href="#catalogo" class="button">Catalogo</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <section id="catalogo" class="wrapper style2">
+        <div class="botoes-adicionais">
+            <button id="btnAdicionarLivro">
+                <i class="fa fa-plus"></i> Adicionar Livro
+            </button>
+            <label for="categoriaFiltro"></label>
+            <select id="categoriaFiltro" class="categoriaFiltro">
+                <option value="">Selecione Filtro</option>
+                <option value="ficcao">Ficção</option>
+                <option value="ciencia">Ciência</option>
+                <option value="historia">História</option>
+                <option value="maior">Maior Avaliação</option>
+                <option value="menor">Menor Avaliação</option>
+            </select>
+            
+        </div>
+
+        <section class="catalogo">
+
+            <div id="livrosLista">
+                
+            </div>
+        </section>
+    </section>
+
+    <!-- Modal para Adicionar Novo Livro -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Adicionar Novo Livro</h2>
+
+        <div class="modal-titulo">
+            <label for="titulo">Título do Livro</label>
+            <input type="text" id="titulo">
+        </div>
+
+        <div class="modal-autor">
+            <label for="autor">Autor</label>
+            <input type="text" id="autor">
+
+            <label for="avaliacao">Avaliação</label>
+            <input type="number" id="avaliacao" min="0" max="5">
+        </div>
+
+    
+        <div class="modal-avaliacao">
+            <label for="categoria">Categoria</label>
+            <select id="categoria">
+                <option value="ficcao">Ficção</option>
+                <option value="ciencia">Ciência</option>
+                <option value="historia">História</option>
+            </select>
+            
+            
+                <label for="dataLeitura">Data de Leitura</label>
+                <input type="date" id="dataLeitura">
+           
+        </div>
+
+        <div class="modal-descricao">
+            <textarea id="descricao" rows="3" placeholder="Digite uma breve descrição..."></textarea>
+        </div>
+
+        <button id="salvarLivro">Salvar</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

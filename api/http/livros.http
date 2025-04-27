@@ -1,0 +1,54 @@
+# API REST de Livros
+
+@baseURL = http://localhost:3000/api/livros
+@id = 67f473c264bfbda4d0c6d1d9
+
+###
+# GET - Buscar todos os livros
+GET {{baseURL}}
+Content-Type: application/json
+
+# GET - Buscar livro por ID
+GET {{baseURL}}/{{id}}
+Content-Type: application/json
+
+###
+
+# GET - Buscar livros por Categoria
+GET {{baseURL}}/categoria/{{categoria}}
+Content-Type: application/json
+
+###
+# POST - Criar um novo livro
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+  "_id": "1234567",
+  "titulo": "Meu Livro Teste",
+  "avaliacao": 8.5,
+  "autor": "Fulano de Tal"
+  data_leitura: "2025-04-25",
+  descricao: "Uma épica história de fantasia que narra a jornada para destruir o Um Anel.",
+  categoria: "ficçao"
+}
+
+###
+# PUT - Atualizar um livro existente
+PUT {{baseURL}}/{{id}}
+Content-Type: application/json
+
+{
+   "_id": "1234567",
+  "titulo": "Meu Livro Teste",
+  "avaliacao": 8.5,
+  "autor": "Fulano de Tal"
+  data_leitura: "2025-04-25",
+  descricao: "Uma épica história de fantasia que narra a jornada para destruir o Um Anel.",
+  categoria: "ficçao"
+}
+
+###
+# DELETE - Deletar um livro
+DELETE {{baseURL}}/{{id}}
+Content-Type: application/json
