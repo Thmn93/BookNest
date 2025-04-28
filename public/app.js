@@ -11,7 +11,7 @@ document.getElementById('form-livro').addEventListener('submit', async (event) =
   }
 
   try {
-    const response = await fetch('http://localhost:3000/api/livros', {
+    const response = await fetch('mongodb+srv://tiagomuniz220:Fatec6055449@cluster0.omd6d.mongodb.net/biblioteca?retryWrites=true&w=majority', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
