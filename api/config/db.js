@@ -1,21 +1,26 @@
-import { MongoClient } from "mongodb";
-let db;
-export async function connectToDatabase(app){
-    try{
-        const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/"
-        const client = new MongoClient(MONGODB_URI)
-        await client.connect()
-        console.log(`Conectando ao MongoDB ${MONGODB_URI}!`)
-        db = client.db()
-        //Disponibiliza o db globalmente no Express
-        app.locals.db = db
-        return db
-    } catch (error){
-        console.error('Falha ao conectar ao MongoDB', error)
-        process.exit(1)
-    }
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://thiagoneves7:Fatec6055449@cluster0.lchyt7b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
 }
-
-
-
-export {db}
+run().catch(console.dir);
